@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('contact');
             $table->string('image')->nullable();
             $table->foreignIdFor(Profile::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(Company::class)->constrained()->onDelete('cascade');
+            $table->integer('compagny_id')->index()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
