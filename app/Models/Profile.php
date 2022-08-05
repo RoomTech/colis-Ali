@@ -11,8 +11,13 @@ class Profile extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
+    public const SUPER_ADMIN = 1;
+    public const MANAGER = 2;
+    public const CONVOYOR = 3;
+
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }
+
 }

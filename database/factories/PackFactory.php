@@ -30,7 +30,6 @@ class PackFactory extends Factory
             'recipientAddress' => fake()->address,
             'description' => fake()->paragraph,
             'isDelivered' => rand(0, 1),
-            'user_id' => User::all()->where('profile_id', Profile::where('name', 'Convoyeur')->first()->id)->random(),
         ];
     }
 }

@@ -18,6 +18,6 @@ class Company extends Model
 
     public function users() : HasMany
     {
-        return $this->hasMany(User::class)->where('profile_id', Profile::company()->get()->first()->id);// Pourquoi tu fais ça ?
+        return $this->hasMany(User::class);
     }
 }

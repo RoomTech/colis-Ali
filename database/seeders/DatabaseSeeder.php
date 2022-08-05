@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Profile;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,17 +17,25 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Company::factory(60)->create();
 
-        $profiles = ['Administrateur', 'Chef de gare', 'Convoyeur'];
+
+     
+
+        $profiles = [
+            Profile::SUPER_ADMIN => 'Administrateur', 
+            Profile::MANAGER => 'Chef de gare',
+            Profile::CONVOYOR => 'Convoyeur'
+        ];
         
-        foreach ($profiles as $profile) {
+        foreach ($profiles as $key => $profile) {
             \App\Models\Profile::create([
+                'id' => $key,
                 'name' => $profile
             ]);
         }
         
-        \App\Models\User::factory(20)->create();
-
-        \App\Models\Pack::factory(150)->create();
+        $this->call([
+            UserSeeder::class,
+        ]);
 
     }
 }

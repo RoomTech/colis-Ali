@@ -27,4 +27,15 @@ class Pack extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function ScopeIsDelivered($query)
+    {
+        return $query->where('isDelivered', true);
+    }
+
+    public function ScopeIsNotDelivered($query)
+    {
+        return $query->where('isDelivered', false);
+    }
+    
 }

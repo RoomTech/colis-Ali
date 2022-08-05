@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Company;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -25,7 +24,7 @@ return new class extends Migration
             $table->string('contact');
             $table->string('image')->nullable();
             $table->foreignIdFor(Profile::class)->constrained()->onDelete('cascade');
-            $table->integer('compagny_id')->index()->nullable();
+            $table->integer('company_id')->index()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
