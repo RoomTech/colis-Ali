@@ -11,7 +11,7 @@ class Profile extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
-    public function user(): HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }
