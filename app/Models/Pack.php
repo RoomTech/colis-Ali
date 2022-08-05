@@ -23,7 +23,7 @@ class Pack extends Model
         'user_id',
     ];
 
-    public function convoyor(): BelongsTo
+    public function manager(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
